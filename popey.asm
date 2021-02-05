@@ -4,14 +4,13 @@ INCBIN 'popeyflash.ctile'
 
 org 45000
 	ld hl,TILE_MAP+80
-	ld b,80
+	ld a,208
 fill_tilemap:
-	ld a,128
-	add a,b
 	ld (hl),a
 	dec hl
-	djnz fill_tilemap
-	ld (hl),128
+	dec a
+	cp 127
+	jr nz,fill_tilemap
 	ld a,84			; animate eyes. Animation cycle offset to
 	ld (TILE_MAP+11),a	; try to sync colours
 	ld a,89
