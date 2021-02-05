@@ -24,8 +24,8 @@ showflash:
 	ld bc,95
 	ld hl,#5800 + 21*32
 	ld de,#5801 + 21*32
-	ld (hl),a
 	halt			; sync with interrupts to reduce flicker
+	ld (hl),a
 	ldir
 	dec a
 	cp 0
