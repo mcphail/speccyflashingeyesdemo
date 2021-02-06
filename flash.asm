@@ -1,6 +1,6 @@
 INCLUDE 'BIFROST_L.asm'
 org TILE_IMAGES
-INCBIN 'popeyflash.ctile'
+INCBIN 'lennaflash.ctile'
 
 org 45000
 	ld hl,TILE_MAP+80
@@ -11,10 +11,10 @@ fill_tilemap:
 	dec a
 	cp 127
 	jr nz,fill_tilemap
-	ld a,84			; animate eyes. Animation cycle offset to
-	ld (TILE_MAP+11),a	; try to sync colours
-	ld a,89
-	ld (TILE_MAP+14),a
+	ld a,84
+	ld (TILE_MAP+31),a
+	ld a,88
+	ld (TILE_MAP+33),a
 
 	call 64995		; start BIFROST rendering
 

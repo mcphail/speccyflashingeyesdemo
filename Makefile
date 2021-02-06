@@ -1,5 +1,5 @@
-program.tap: loader.tap popey.tap screen.tap
-	cat loader.tap popey.tap screen.tap > program.tap
+program.tap: loader.tap flash.tap screen.tap
+	cat loader.tap flash.tap screen.tap > program.tap
 
 screen.tap: screen.scr screen.asm
 	pasmo --tap --name screen screen.asm screen.tap
@@ -7,5 +7,5 @@ screen.tap: screen.scr screen.asm
 loader.tap: loader.bas
 	zmakebas -l -a 10 -n loader -o loader.tap loader.bas
 
-popey.tap: popey.asm BIFROST_L.asm popeyflash.ctile
-	pasmo --tap --name popey popey.asm popey.tap
+flash.tap: flash.asm BIFROST_L.asm lennaflash.ctile
+	pasmo --tap --name flash flash.asm flash.tap
